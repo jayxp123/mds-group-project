@@ -1,2 +1,13 @@
 import random 
 import pandas as pd
+
+def move_tortoise():
+    """Determine tortoise's move based on random chance."""
+    i = random.randint(1, 10)
+    if 1 <= i <= 5:       # Fast plod: 50%
+        return 3
+    elif 6 <= i <= 7:     # Slip: 20%
+        return -6
+    else:                 # Slow plod: 30%
+        return 1
+
