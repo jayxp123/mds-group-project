@@ -25,3 +25,33 @@ def move_hare():
     else:                 # Small slip: 20%
         return -2
 
+def print_track(tortoise_pos, hare_pos):
+    """Print the current state of the race track."""
+    track = [' ' for _ in range(70)]
+    track[0] = '_'      # Starting gate
+    track[-1] = '|'     # Finish line
+
+    # Adjust positions to be within [1, 70]
+    t = max(1, min(tortoise_pos, 70))
+    h = max(1, min(hare_pos, 70))
+
+    if t == h:
+        # OUCH!!! if both on same position (not at start)
+        if t == 1:
+            # Only show "_" at the start
+            print(''.join(track))
+        else:
+            ouch = "OUCH!!!"
+            idx = t-1
+            for j, c in enumerate(ouch):
+                if idx + j < 70:
+                    track[idx + j] = c
+            print(''.join(track))
+    else:
+        if t != 1:
+            track[t-1] = 'T'
+        if h != 1:
+            track[h-1] = 'H'
+        print(''.join(track))
+
+
