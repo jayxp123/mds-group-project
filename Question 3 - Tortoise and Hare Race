@@ -55,3 +55,34 @@ def print_track(tortoise_pos, hare_pos):
         print(''.join(track))
 
 
+def race():
+    """Simulate the tortoise and hare race."""
+    tortoise = 1
+    hare = 1
+
+    print("BANG!!!!")
+    print("AND THEY'RE OFF!!!!")
+
+    while True:
+        tortoise += move_tortoise()
+        hare += move_hare()
+
+        # Ensure positions are not less than 1
+        tortoise = max(1, tortoise)
+        hare = max(1, hare)
+
+        print_track(tortoise, hare)
+
+        # Check for winners
+        if tortoise >= 70 and hare >= 70:
+            print("It's a tie.")
+            break
+        elif tortoise >= 70:
+            print("TORTOISE WINS!!! YAY!!!")
+            break
+        elif hare >= 70:
+            print("Hare wins. Yawn...")
+            break
+
+# Run the simulation
+race()
