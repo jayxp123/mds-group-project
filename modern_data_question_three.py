@@ -20,7 +20,7 @@ print("BANG !!!!")
 print("AND THEY'RE OFF !!!!\n")
 
 def move_tortoise():
-
+"""This determines the tortoise's move based on random chance."""
     i = random.randint(1, 10)
     if 1 <= i <= 5:
         return 3
@@ -30,7 +30,7 @@ def move_tortoise():
         return 1
 
 def move_hare():
-
+"""This determines the hare's move based on random chance."""
     i = random.randint(1, 10)
     if 1 <= i <= 2:
         return 0
@@ -44,7 +44,7 @@ def move_hare():
         return -2
 
 def print_track(tortoise_pos, hare_pos):
-
+"""This prints the race track -- showing the toirtoise and hare positions."""
     track = ['_'] * finish_line
     t_pos = max(0, tortoise_pos - 1)
     h_pos = max(0, hare_pos - 1)
@@ -54,7 +54,7 @@ def print_track(tortoise_pos, hare_pos):
     h_pos = min(h_pos, finish_line - 1)
 
     if tortoise_pos == hare_pos:
-        track[t_pos] = "OUCH!"
+        track[t_pos] = "OUCH!" #this is the collision 
     else:
         track[t_pos] = "T"
         track[h_pos] = "H"
@@ -62,7 +62,7 @@ def print_track(tortoise_pos, hare_pos):
 
     print(''.join(str(x).ljust(1) for x in track))
 
-
+#this actually runs the entire race 
 while tortoise_pos < finish_line and hare_pos < finish_line:
     tortoise_pos += move_tortoise()
     hare_pos += move_hare()
@@ -74,9 +74,9 @@ while tortoise_pos < finish_line and hare_pos < finish_line:
         hare_pos = 1
 
     print_track(tortoise_pos, hare_pos)
-    time.sleep(0.2)
+    time.sleep(0.2) #did this so there is a slight pause (looks better)
 
-
+#determines the overall winner each time
 if tortoise_pos >= finish_line and hare_pos >= finish_line:
     print("\nIt's a tie!")
 elif tortoise_pos >= finish_line:
