@@ -83,3 +83,9 @@ elif tortoise_pos >= finish_line:
     print("\nTORTOISE WINS!!! YAY!!!")
 else:
     print("\nHare wins. Yuch.")
+
+
+"""Result Description"""
+#Every single time the code is ran, there is a different variation of the outcome. Either the hare or the tortoise win, making it a "chance" type of code. It is all done by random chance. 
+#In my experience, I mostly have had the hare win, however I am still hopeful that the tortoise will have a comeback! 
+#I specifically spaced out the timing so there is a clean pause, and the collision as mentioned in the question. 
