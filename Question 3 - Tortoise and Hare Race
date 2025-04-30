@@ -12,7 +12,7 @@ def move_tortoise():
         return 1
 
 def move_hare():
-    """Determine hare's move based on random chance."""
+"""Based on random chance, determine the hare's movement for this turn."""
     i = random.randint(1, 10)
     if 1 <= i <= 2:       # Sleep: 20%
         return 0
