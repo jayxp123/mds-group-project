@@ -2,7 +2,7 @@ import random
 import pandas as pd
 
 def move_tortoise():
-    """Determine tortoise's move based on random chance."""
+"""Based on random chance, determine the tortoise's movement for this turn."""
     i = random.randint(1, 10)
     if 1 <= i <= 5:       # Fast plod: 50%
         return 3
