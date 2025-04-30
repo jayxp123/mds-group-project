@@ -4,7 +4,7 @@ import pandas as pd
 def move_tortoise():
 """Based on random chance, determine the tortoise's movement for this turn."""
     i = random.randint(1, 10)
-    if 1 <= i <= 5:       # Fast plod: 50%
+    if 1 <= i <= 5:       # Fast plod: 50% chance to move forward by 3 spaces
         return 3
     elif 6 <= i <= 7:     # Slip: 20%
         return -6
