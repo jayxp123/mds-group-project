@@ -26,10 +26,15 @@ def move_hare():
         return -2
 
 def print_track(tortoise_pos, hare_pos):
-"""Displays the current positions of the tortoise and hare on the race track."""
-    track = [' ' for _ in range(70)]
-    track[0] = '_'      # Starting gate
-    track[-1] = '|'     # Finish line
+    """Display the current state of the race track, showing both racers' positions.
+    
+    Args:
+        tortoise_pos (int): Current position of the tortoise.
+        hare_pos (int): Current position of the hare.
+    """
+    track = [' ' for _ in range(70)] # Create a track with 70 positions
+    track[0] = '_'      # Starting gate symbol
+    track[-1] = '|'     # Finish line symbol
 
     # Adjust positions to be within [1, 70]
     t = max(1, min(tortoise_pos, 70))
