@@ -14,15 +14,15 @@ def move_tortoise():
 def move_hare():
 """Based on random chance, determine the hare's movement for this turn."""
     i = random.randint(1, 10)
-    if 1 <= i <= 2:       # Sleep: 20%
+    if 1 <= i <= 2:       # Sleep: 20% chance, hare does not move
         return 0
-    elif 3 <= i <= 4:     # Big hop: 20%
+    elif 3 <= i <= 4:     # Big hop: 20% chance to move forward 9 spaces
         return 9
-    elif i == 5:          # Big slip: 10%
+    elif i == 5:          # Big slip: 10% chance to move backward 12 spaces
         return -12
-    elif 6 <= i <= 8:     # Small hop: 30%
+    elif 6 <= i <= 8:     # Small hop: 30% chance to move forward 1 space
         return 1
-    else:                 # Small slip: 20%
+    else:                 # Small slip: 20% chance to move backward 2 spaces
         return -2
 
 def print_track(tortoise_pos, hare_pos):
