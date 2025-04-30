@@ -12,10 +12,12 @@ Original file is located at
 import random
 import time
 
+#initializes the starting positions of both animals
 tortoise_pos = 1
 hare_pos = 1
 finish_line = 70
 
+#these are the printing starting messages
 print("BANG !!!!")
 print("AND THEY'RE OFF !!!!\n")
 
@@ -49,7 +51,7 @@ def print_track(tortoise_pos, hare_pos):
     t_pos = max(0, tortoise_pos - 1)
     h_pos = max(0, hare_pos - 1)
 
-
+#within track bounds so it doesnt look messy
     t_pos = min(t_pos, finish_line - 1)
     h_pos = min(h_pos, finish_line - 1)
 
@@ -67,7 +69,7 @@ while tortoise_pos < finish_line and hare_pos < finish_line:
     tortoise_pos += move_tortoise()
     hare_pos += move_hare()
 
-
+#ensures that the positions are not less than 1
     if tortoise_pos < 1:
         tortoise_pos = 1
     if hare_pos < 1:
