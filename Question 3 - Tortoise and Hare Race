@@ -2,7 +2,7 @@ import random
 import pandas as pd
 
 def move_tortoise():
-"""Based on random chance, determine the tortoise's movement for this turn."""
+"""Determine tortoise's move based on random chance."""
     i = random.randint(1, 10)
     if 1 <= i <= 5:       # Fast plod: 50% chance to move forward by 3 spaces
         return 3
@@ -12,7 +12,7 @@ def move_tortoise():
         return 1
 
 def move_hare():
-"""Based on random chance, determine the hare's movement for this turn."""
+"""Determine hare's move based on random chance."""
     i = random.randint(1, 10)
     if 1 <= i <= 2:       # Sleep: 20% chance, hare does not move
         return 0
