@@ -8,7 +8,7 @@ def move_tortoise():
         return 3
     elif 6 <= i <= 7:     # Slip: 20% chance to move backward 6 spaces
         return -6
-    else:                 # Slow plod: 30%
+    else:                 # Slow plod: 30% chance to move forward 1 space
         return 1
 
 def move_hare():
