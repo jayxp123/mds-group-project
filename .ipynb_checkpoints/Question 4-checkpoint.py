@@ -50,4 +50,21 @@ df = compute_soc_total(df)
 # Check results
 print(df[['eeid', 'soc', 'soc_total']])
 
+### TESTS FOR IMPLICATIONS ###
+
+# 1. CEO soc_total should be 104
+ceo_soc_total = df.loc[df['eeid'] == 'p00578', 'soc_total'].iloc[0]
+assert ceo_soc_total == 104, f"CEO soc_total expected to be 104 but got {ceo_soc_total}"
+print("✅ Test 1 passed: CEO soc_total is 104")
+
+# 2. Sum of soc_total for grade 6 employees should be 102
+grade6_soc_total = df.loc[df['grade'] == 6, 'soc_total'].sum()
+assert grade6_soc_total == 102, f"Grade 6 soc_total sum expected to be 102 but got {grade6_soc_total}"
+print("✅ Test 2 passed: Grade 6 soc_total sums to 102")
+
+# 3. For grade 2 employees, soc and soc_total should be equal
+grade2 = df.loc[df['grade'] == 2]
+mismatch = grade2[grade2['soc'] != grade2['soc_total']]
+assert mismatch.empty, f"Grade 2 employees have soc != soc_total: {mismatch}"
+print("✅ Test 3 passed: For all grade 2 employees, soc equals soc_total")
 
