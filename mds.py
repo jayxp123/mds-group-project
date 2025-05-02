@@ -141,7 +141,7 @@ print(results)
 # Yes, the function appears to be working. It appears to be accepcting all my inputs and outputting an answer.
 
 # Question 2: Do you get the same answers when the ged and ged_cats variables are compared to the same numeric variable?
-# Yes we get the same answers when the ged and ged _ cats caraibles are compared to the same numeric variable. When we recode from 0/1 to ged/no ged, the results does not change the statisitcal results as seen in the output.
+# Yes we get the same answers when the ged and ged_cats variables are compared to the same numeric variable. When we recode from 0/1 to ged/no ged, the results does not change the statisitcal results as seen in the output.
 
 # Creating my inputs
 num_vars = [df['income_log'], df['post_sec_edu']]
