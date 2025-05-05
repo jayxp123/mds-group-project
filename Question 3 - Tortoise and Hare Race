@@ -1,0 +1,93 @@
+import random 
+import pandas as pd
+
+def move_tortoise():
+    """Determine tortoise's move based on random chance."""
+    i = random.randint(1, 10)
+    if 1 <= i <= 5:       # Fast plod: 50% chance to move forward by 3 spaces
+        return 3
+    elif 6 <= i <= 7:     # Slip: 20% chance to move backward 6 spaces
+        return -6
+    else:                 # Slow plod: 30% chance to move forward 1 space
+        return 1
+
+def move_hare():
+    """Determine hare's move based on random chance."""
+    i = random.randint(1, 10)
+    if 1 <= i <= 2:       # Sleep: 20% chance, hare does not move
+        return 0
+    elif 3 <= i <= 4:     # Big hop: 20% chance to move forward 9 spaces
+        return 9
+    elif i == 5:          # Big slip: 10% chance to move backward 12 spaces
+        return -12
+    elif 6 <= i <= 8:     # Small hop: 30% chance to move forward 1 space
+        return 1
+    else:                 # Small slip: 20% chance to move backward 2 spaces
+        return -2
+
+def print_track(tortoise_pos, hare_pos):
+    """Display the current state of the race track, showing both racers' positions.
+    
+    Args:
+        tortoise_pos (int): Current position of the tortoise.
+        hare_pos (int): Current position of the hare.
+    """
+    track = [' ' for _ in range(70)] # Create a track with 70 positions
+    track[0] = '_'      # Starting gate symbol
+    track[-1] = '|'     # Finish line symbol
+
+    # Adjust positions to be within [1, 70]
+    t = max(1, min(tortoise_pos, 70))
+    h = max(1, min(hare_pos, 70))
+
+    if t == h:
+        # OUCH!!! if both on same position (not at start)
+        if t == 1:
+            # Only show "_" at the start
+            print(''.join(track))
+        else:
+            ouch = "OUCH!!!"
+            idx = t-1
+            for j, c in enumerate(ouch):
+                if idx + j < 70:
+                    track[idx + j] = c
+            print(''.join(track))
+    else:
+        if t != 1:
+            track[t-1] = 'T'
+        if h != 1:
+            track[h-1] = 'H'
+        print(''.join(track))
+
+
+def race():
+    """Simulate the tortoise and hare race."""
+    tortoise = 1
+    hare = 1
+
+    print("BANG!!!!")
+    print("AND THEY'RE OFF!!!!")
+
+    while True:
+        tortoise += move_tortoise()
+        hare += move_hare()
+
+        # Ensure positions are not less than 1
+        tortoise = max(1, tortoise)
+        hare = max(1, hare)
+
+        print_track(tortoise, hare)
+
+        # Check for winners
+        if tortoise >= 70 and hare >= 70:
+            print("It's a tie.")
+            break
+        elif tortoise >= 70:
+            print("TORTOISE WINS!!! YAY!!!")
+            break
+        elif hare >= 70:
+            print("Hare wins. Yawn...")
+            break
+
+# Run the simulation
+race()
